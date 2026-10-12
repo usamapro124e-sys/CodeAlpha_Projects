@@ -99,7 +99,7 @@ Usama
 ## ⚠️ Disclaimer
 This is an educational machine learning project using synthetic data. Its predictions and evaluation results should not be used to make real-world lending decisions.
 
-**Speech Emotion Recognition Using Deep Learning**
+##Speech Emotion Recognition Using Deep Learning
 
 This project uses deep learning to classify emotions from speech audio. It processes audio recordings from the RAVDESS dataset, extracts useful audio features, and trains a Convolutional Neural Network (CNN) using TensorFlow and Keras to predict an emotion.
 
