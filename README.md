@@ -98,3 +98,118 @@ Usama
 
 ## ⚠️ Disclaimer
 This is an educational machine learning project using synthetic data. Its predictions and evaluation results should not be used to make real-world lending decisions.
+
+**Speech Emotion Recognition Using Deep Learning**
+
+This project uses deep learning to classify emotions from speech audio. It processes audio recordings from the RAVDESS dataset, extracts useful audio features, and trains a Convolutional Neural Network (CNN) using TensorFlow and Keras to predict an emotion.
+
+This is a learning project built to practise audio preprocessing, feature extraction, neural networks, and model evaluation.
+
+## Emotions Covered
+
+The model is designed to classify eight emotion categories:
+
+- Neutral
+- Calm
+- Happy
+- Sad
+- Angry
+- Fearful
+- Disgust
+- Surprised
+
+## Dataset
+
+The project uses the **RAVDESS (Ryerson Audio-Visual Database of Emotional Speech and Song)** speech dataset.
+
+The notebook downloads and extracts the speech audio archive. It then finds `.wav` files and reads the emotion code from each filename.
+
+Dataset source: https://zenodo.org/record/1188976
+
+## Technologies Used
+
+- Python
+- NumPy
+- Librosa
+- TensorFlow
+- Keras
+- Scikit-learn
+- Google Colab
+
+## How It Works
+
+1. **Load the dataset:** Download and extract the RAVDESS audio files.
+2. **Extract audio features:** Use Librosa to load audio at 22,050 Hz and extract 40 Mel-frequency cepstral coefficients (MFCCs).
+3. **Prepare the data:** Pad or trim each feature sequence to 130 time steps, then convert the features and emotion labels into NumPy arrays.
+4. **Split the dataset:** Use an 80/20 training and testing split.
+5. **Build the model:** Train a CNN with Conv1D, MaxPooling1D, Flatten, Dense, and Dropout layers.
+6. **Train the model:** Train for up to 30 epochs using the Adam optimizer and sparse categorical cross-entropy loss.
+7. **Evaluate predictions:** Check test accuracy, a classification report, and a confusion matrix.
+
+## Model Details
+
+- Input features: 130 time steps × 40 MFCC features
+- Architecture: 1D Convolutional Neural Network (CNN)
+- Output: 8 emotion classes
+- Optimizer: Adam
+- Loss function: Sparse categorical cross-entropy
+- Batch size: 32
+- Training epochs: 30
+
+## Results
+
+The notebook's recorded evaluation results are:
+
+- **Test accuracy:** 21.18%
+- **Test samples:** 288
+- **Training samples:** 1,152
+
+The current model has low classification performance and does not reliably distinguish all eight emotions yet. These results are a baseline, not a claim of a highly accurate emotion detector. Further preprocessing, model tuning, and training experiments are needed.
+
+## How to Run
+
+The notebook was created in Google Colab.
+
+1. Open the project notebook in Google Colab.
+2. Run the cells in order.
+3. Allow the dataset download and extraction cell to finish.
+4. Run the feature extraction, data splitting, model training, and evaluation cells.
+
+### Install dependencies (if running in a separate environment)
+
+```bash
+pip install numpy librosa tensorflow scikit-learn matplotlib
+```
+
+The notebook downloads the dataset automatically, so a working internet connection is required for that step.
+
+## Project Structure
+
+```text
+Speech-Emotion-Recognition/
+├── README.md
+└── Emotion Recognition from Speech.ipynb
+```
+
+Your actual notebook filename or repository structure may differ. Update this section if you use a different filename or add more files.
+
+ Future Improvements
+
+- Improve the model's ability to recognise all eight emotions.
+- Experiment with CNN, LSTM, or CNN-LSTM architectures.
+- Tune model parameters and compare validation results.
+- Review the confusion matrix and per-class precision and recall.
+- Test predictions on audio recordings not used during training.
+
+What I Learned
+
+- Loading and preprocessing speech audio
+- Extracting MFCC features with Librosa
+- Preparing data for a deep learning model
+- Building and training a CNN with TensorFlow/Keras
+- Evaluating a classifier using accuracy, precision, recall, F1-score, and a confusion matrix
+
+ Author
+
+Created as a hands-on machine learning and deep learning project.
+
